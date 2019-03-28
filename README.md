@@ -1,0 +1,2 @@
+# IPP
+Indywidualny projekt programistyczny
