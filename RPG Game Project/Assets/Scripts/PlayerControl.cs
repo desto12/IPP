@@ -52,13 +52,17 @@ public class PlayerControl : MonoBehaviour
         {
             MoveAndAttack();
         }
-
-        if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
-        {
-            walking = false;
-        }
         else
-            walking = true;
+        {
+            if (!navMeshAgent.pathPending &&navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
+            {
+                walking = false;
+            }
+            else
+                walking = true; 
+        }
+
+
         anim.SetBool("Run", walking);
     }
 
@@ -70,20 +74,20 @@ public class PlayerControl : MonoBehaviour
         }
 
         navMeshAgent.destination = targetedEnemy.position;
-        if(navMeshAgent.remainingDistance > attackDistance)
+        if(!navMeshAgent.pathPending &&navMeshAgent.remainingDistance >  attackDistance)
         {
             navMeshAgent.isStopped = false;
-            Debug.Log("hited");
             walking = true;
         }
         else
-        {
+        {    
             transform.LookAt(targetedEnemy);
             Vector3 attackdir = targetedEnemy.transform.position - transform.position;
-
-            if (Time.time > nextAttack) ;
+            anim.SetBool("Attack", false);
+            if (Time.time > nextAttack)
             {
                 nextAttack = Time.time + attackRate;
+                anim.SetBool("Attack", true);
             }
             navMeshAgent.isStopped = true;
             walking = false;
