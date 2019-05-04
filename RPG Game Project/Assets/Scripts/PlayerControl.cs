@@ -38,11 +38,12 @@ public class PlayerControl : MonoBehaviour
                     targetedEnemy = hit.transform;
                     enemyClicked = true;
                 }
+
                 else
                 {
                     walking = true;
                     enemyClicked = false;
-                    navMeshAgent.isStopped = false;
+                    navMeshAgent.isStopped = false; 
                     navMeshAgent.destination = hit.point;
                 }
             }
