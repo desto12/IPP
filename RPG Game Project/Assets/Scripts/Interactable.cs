@@ -9,6 +9,8 @@ public class Interactable : MonoBehaviour
     public NavMeshAgent playerAgent;
     private bool interacted;
 
+
+
     public virtual void MoveToInteract(NavMeshAgent playerAgent)
     {
         interacted = false;
@@ -31,7 +33,7 @@ public class Interactable : MonoBehaviour
 
     public virtual void Interact()
     {
-        Debug.Log("Hej");
+
     }
 }
     
