@@ -7,17 +7,25 @@ public class PlPl : MonoBehaviour
 {
     NavMeshAgent playerAgent;
     Animator anim;
+    Rigidbody rigdBod;
+    private bool isDancing = false;
     void Start()
     {
         playerAgent = GetComponent<NavMeshAgent>();
         anim = GetComponentInChildren<Animator>();
+        rigdBod = GetComponent<Rigidbody>();
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            isDancing = !isDancing;
+            anim.SetBool("Dance", isDancing);
+        }
+        if (Input.GetButtonDown("Fire2") && isDancing == false)
         {
             GetInteraction();
 
@@ -33,13 +41,14 @@ public class PlPl : MonoBehaviour
         if (Physics.Raycast(interacionRay, out interactionInfo, Mathf.Infinity))
         {
             GameObject interactedObject = interactionInfo.collider.gameObject;
-            if(interactedObject.tag == "Interactable Object")
+            if (interactedObject.tag == "Interactable Object" || interactedObject.tag == "Enemy")
             {
                 interactedObject.GetComponent<Interactable>().MoveToInteract(playerAgent);
             }
 
             else 
             {
+                anim.SetBool("Attack", false);
                 playerAgent.destination = interactionInfo.point;
                 playerAgent.stoppingDistance = 0f;
             }

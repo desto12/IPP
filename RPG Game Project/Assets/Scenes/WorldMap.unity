@@ -434,6 +434,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 95600997502611702, guid: 4d28dc19e6aac1645953e4ef73dbdee5,
+        type: 3}
+      propertyPath: m_WarningMessage
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4086162962145720, guid: 4d28dc19e6aac1645953e4ef73dbdee5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -689,7 +694,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 463255649}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1385,9 +1390,10 @@ GameObject:
   - component: {fileID: 1355801844}
   - component: {fileID: 1355801843}
   - component: {fileID: 1355801847}
+  - component: {fileID: 1355801848}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Interactable Object
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
@@ -1400,7 +1406,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1355801842}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1479,6 +1485,21 @@ MonoBehaviour:
   playerAgent: {fileID: 0}
   weapon: {fileID: 0}
   player: {fileID: 28041293}
+--- !u!114 &1355801848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355801842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf4231b5d31ff43498f487b5397453d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
+  power: 1
+  maxHealth: 3
 --- !u!1001 &1459540680
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2575,6 +2596,9 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 2683617662709825780, guid: 1f31d6de07e16564ea445c021c2d8e7e, type: 3}
     - {fileID: 2674182864266314640, guid: 1f31d6de07e16564ea445c021c2d8e7e, type: 3}
+    - {fileID: 7624430150781168557, guid: 1f31d6de07e16564ea445c021c2d8e7e, type: 3}
+    - {fileID: 1477201573698435672, guid: 1f31d6de07e16564ea445c021c2d8e7e, type: 3}
+    - {fileID: 8395849777659463398, guid: 1f31d6de07e16564ea445c021c2d8e7e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1f31d6de07e16564ea445c021c2d8e7e, type: 3}
 --- !u!1 &2063899844
 GameObject:
