@@ -11,13 +11,14 @@ public class InventoryController : MonoBehaviour
     {
         playerWeaponController = GetComponent<PlayerWeaponController>();
         axe = new Item(1, "axe");
+        playerWeaponController.EquipWeapon(axe);
     }
 
-    void Update()
+    /*void Update()
     {
         if(Input.GetKeyDown(KeyCode.V))
         {
-            playerWeaponController.EquipWeapon(axe);
+            
         }
-    }
+    }*/
 }

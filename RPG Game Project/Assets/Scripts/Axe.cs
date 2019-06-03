@@ -15,6 +15,7 @@ public class Axe : MonoBehaviour, IWeapon
     {
         Debug.Log(this.name + "atakuje");
         anim.SetBool("Attack", true);
+        anim.SetBool("Run", false);
     }
 
     private void OnTriggerEnter(Collider other)

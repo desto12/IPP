@@ -8,7 +8,12 @@ public class PlPl : MonoBehaviour
     NavMeshAgent playerAgent;
     Animator anim;
     Rigidbody rigdBod;
+
+    private Transform targetedEnemy;
     private bool isDancing = false;
+    private Vector3 targetPosition;
+    private bool clicked;
+
     void Start()
     {
         playerAgent = GetComponent<NavMeshAgent>();
@@ -38,19 +43,23 @@ public class PlPl : MonoBehaviour
     {
         Ray interacionRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit interactionInfo;
-        if (Physics.Raycast(interacionRay, out interactionInfo, Mathf.Infinity))
+        if (Physics.Raycast(interacionRay, out interactionInfo, 1000))
         {
             GameObject interactedObject = interactionInfo.collider.gameObject;
             if (interactedObject.tag == "Interactable Object" || interactedObject.tag == "Enemy")
             {
                 interactedObject.GetComponent<Interactable>().MoveToInteract(playerAgent);
+                targetedEnemy = interactionInfo.transform;
+                clicked = true;
+
             }
 
             else 
             {
                 anim.SetBool("Attack", false);
-                playerAgent.destination = interactionInfo.point;
+                playerAgent.destination = interactionInfo.point;   
                 playerAgent.stoppingDistance = 0f;
+                clicked = false;
             }
         }
     }
@@ -59,6 +68,12 @@ public class PlPl : MonoBehaviour
     {
         if (!playerAgent.pathPending && playerAgent.remainingDistance <= playerAgent.stoppingDistance)
         {
+            if (clicked && targetedEnemy != null)
+            {
+                targetPosition = new Vector3(targetedEnemy.transform.position.x, transform.position.y, targetedEnemy.transform.transform.position.z);
+                transform.LookAt(targetPosition);
+            }
+
             anim.SetBool("Run", false);
         }
         else

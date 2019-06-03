@@ -78,7 +78,6 @@ public class PlayerControl : MonoBehaviour
         if(!navMeshAgent.pathPending &&navMeshAgent.remainingDistance >  attackDistance)
         {
             navMeshAgent.isStopped = false;
-            walking = true;
         }
         else
         {    
