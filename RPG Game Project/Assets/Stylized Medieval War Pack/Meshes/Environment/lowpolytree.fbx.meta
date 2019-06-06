@@ -1,25 +1,34 @@
 fileFormatVersion: 2
-guid: 1f2f8662ddbb4174fb3b156124903fc2
+guid: 8b11cf23da15876429891af79b135753
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: default_mat
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: pine_b
+    100000: Camera
+    100002: Cylinder
+    100004: Lamp
+    100006: //RootNode
+    400000: Camera
+    400002: Cylinder
+    400004: Lamp
+    400006: //RootNode
+    2000000: Camera
+    2100000: Leaves
+    2100002: Bark
+    2300000: Cylinder
+    3300000: Cylinder
+    4300000: Cylinder
+    10800000: Lamp
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: default_mat
-    second: {fileID: 2100000, guid: e750e7b61ea3df94fae299f58526e1db, type: 2}
+      name: Leaves
+    second: {fileID: 2100000, guid: 3d47bb573aa4b3845aa8b6e26a95ec88, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -45,7 +54,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 100
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
