@@ -1,2 +1,2 @@
-# IPP
-Indywidualny projekt programistyczny
+# General Info
+The project was part of a college course
